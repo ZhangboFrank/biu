@@ -449,7 +449,6 @@ public class EC2Util {
 	}
 	
 	public String runInstance(AmazonEC2 ec2, String imageId, String keyName, String subnetId, String backupSubnetId, String securityGroupId, String userData, String iamInstanceProfile){
-		// ami-baada8e8 the proxy server in Singapore.
 		InstanceType instanceType = InstanceType.T2Micro;
 		int minCount = 1;
 		RunInstancesRequest runRequest = null;
