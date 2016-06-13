@@ -1163,7 +1163,7 @@ public class Biu {
 	}
 	
 	/**
-	 * shutdown bjs public network.
+	 * shutdown Beijing public network.
 	 * @throws Exception
 	 */
 	public void closeBeijingNetwork() throws Exception{
@@ -1188,10 +1188,10 @@ public class Biu {
 	
 	
 	/**
-	 * open bjs public network.
+	 * open Beijing public network.
 	 * @throws Exception
 	 */
-	public void openBjsNetwork() throws Exception{
+	public void openBeijingNetwork() throws Exception{
 		AmazonEC2 ec2 = (AmazonEC2) Clients.getClientByProfile(Clients.EC2, "beijing");
 		EC2Util util = new EC2Util();
 		util.removeIngressNo49(ec2, CONFIG_APP_NACL_BEIJING);
