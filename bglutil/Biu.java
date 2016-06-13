@@ -1344,20 +1344,6 @@ public class Biu {
 		util.printLaunchConfigurationForAsg(aas, asgName);
 	}
 	
-	public void yumUpdateAsgSoftBeijing(String asgName, String waitMins) throws Exception{
-		h.help(asgName,"<asg-name> <wait-mins-during-swap-members>");
-		ASGUtil au = new ASGUtil();
-		AmazonAutoScaling aas = (AmazonAutoScaling) Clients.getClientByProfile(Clients.ASG, "beijing");
-		AmazonEC2 ec2 = (AmazonEC2) Clients.getClientByProfile(Clients.EC2, "beijing");
-		String[] commands = {"sleep 1"};
-		if(au.checkNewLaunchConfigAvail(aas, asgName)){
-			au.commandsToAmiForAsgByName(aas, ec2, CONFIG_BEIJING_EC2_KEYPAIR_NAME, asgName, CONFIG_BEIJING_DEFAULT_VPC_SUBNET1, CONFIG_BEIJING_DEFAULT_VPC_SUBNET2, CONFIG_BEIJING_DEFAULT_VPC_ALLOWALL_SECURITY_GROUP, commands, Integer.parseInt(waitMins),false);
-		}
-		else{
-			System.out.println("Next launch configuration name is occupied, please have a check.");
-		}
-	}
-	
 	/**
 	 * This routine will eventually create new LC with a version increasing name.
 	 * So, if the new name is not available, abort the mission. 
